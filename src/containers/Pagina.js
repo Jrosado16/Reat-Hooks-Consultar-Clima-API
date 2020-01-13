@@ -7,7 +7,8 @@ import Clima from '../components/Clima';
 import Loader from '../components/Loader';
 
 function App() {
-
+  //creamos el state
+  //datos = state guardarDatos = this.setState()
   const [datos, guardarDatos] = useState({
       pais: '',
       ciudad: ''
@@ -23,7 +24,7 @@ function App() {
 
       const API = process.env.API_KEY || '';
 
-
+      //Validamos que no haya un error y que tengamos una API_KEY
       if(!verificarDatos() || !API){
         alert('Algo salio mal revisar API')
          return;
@@ -51,7 +52,7 @@ function App() {
         }
       })
     }
-
+  //validamos que lso datos no esten vacios
   const verificarDatos = () => {
     if(datos.pais === '' || datos.ciudad === ''){
         guardarError(true)
@@ -62,7 +63,7 @@ function App() {
         return true;
     }
   }
-  //traemos los datos del form y validamos
+  //escuchamos los cabios del form
   const datosConsulta = (event) => {
       //validamos que vengas los campos
       guardarDatos({
